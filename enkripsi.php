@@ -16,8 +16,9 @@
 		else {
 			$pesan = $_POST['pesan'];
 			include 'EnkripsiClass.php';
+			$Obj = new FIX_Enc();
 
-			$enkrip= new Enkripsi($pesan);
+			$enkrip= $Obj->Enc($pesan);
 			echo "<script type='text/javascript'> document.getElementById('de').value='$enkrip'</script>";			
 		}
 	}
@@ -33,7 +34,9 @@
 			$pesan = $_POST['pesanEncript'];
 			include 'EnkripsiClass.php';
 
-			$enkrip= new Dekripsi($pesan);
+			$Obj = new FIX_Enc();
+
+			$enkrip= $Obj->Dec($pesan);
 			echo "<script type='text/javascript'> document.getElementById('en').value='$enkrip'</script>";				
 		}
 	}
