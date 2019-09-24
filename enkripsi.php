@@ -8,6 +8,7 @@
 	<input type='submit' name='dekripsi' value='DEKRIPSI' >
 </form>
 <?php
+	include 'EnkripsiClass.php';
 	if(isset($_POST['enkrip'])){
 		if($_POST['pesan']==""){
 			echo 'tidak ada pesan dienkripsi';
@@ -15,10 +16,8 @@
 		}
 		else {
 			$pesan = $_POST['pesan'];
-			include 'EnkripsiClass.php';
-			$Obj = new FIX_Enc();
 
-			$enkrip= $Obj->Enc($pesan);
+			$enkrip= FIX_Enc::Init()->Enc($pesan);
 			echo "<script type='text/javascript'> document.getElementById('de').value='$enkrip'</script>";			
 		}
 	}
@@ -32,11 +31,8 @@
 		}
 		else {
 			$pesan = $_POST['pesanEncript'];
-			include 'EnkripsiClass.php';
 
-			$Obj = new FIX_Enc();
-
-			$enkrip= $Obj->Dec($pesan);
+			$enkrip = FIX_Enc::Init()->Dec($pesan);
 			echo "<script type='text/javascript'> document.getElementById('en').value='$enkrip'</script>";				
 		}
 	}

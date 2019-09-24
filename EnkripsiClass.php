@@ -23,6 +23,11 @@
 			return $str;
 		}
 
-		
+		function Init(){
+			$Obj = new FIX_Enc();
+
+			return $Obj;
+		}
+
 	}
 ?>
