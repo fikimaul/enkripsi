@@ -2,7 +2,7 @@
 	class FIX_Enc{
 		public  $hasil;
 
-		function Enc($string){
+		static function Enc($string){
 			$random = md5(time());
 
 			$str = "";
@@ -13,7 +13,7 @@
 			return base64_encode(strrev($str));
 		}
 
-		function Dec($string){
+		static function Dec($string){
 			$string_dec = strrev(base64_decode($string));
 			$str = "";
 			for($i=0;$i<strlen($string_dec);$i+=2):
@@ -23,7 +23,7 @@
 			return $str;
 		}
 
-		function Init(){
+		static function Init(){
 			$Obj = new FIX_Enc();
 
 			return $Obj;
